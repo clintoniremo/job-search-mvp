@@ -1,0 +1,378 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  line-height: 1.5;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #2563eb;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.description {
+  max-width: 720px;
+  margin: 16px 0 0;
+  color: #4b5563;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.button {
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #111827;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.button.button-outline {
+  background: transparent;
+  border-color: #9ca3af;
+  color: #111827;
+}
+
+.button.button-outline:hover {
+  background: #f3f4f6;
+}
+
+.button-primary {
+  background: #2563eb;
+  color: white;
+  border-color: transparent;
+}
+
+.settings-card,
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
+}
+
+.settings-card {
+  margin-bottom: 24px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-row-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-row-inline input {
+  width: auto;
+  margin-right: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: 24px;
+}
+
+.profile-card,
+.jobs-card,
+.analysis-card {
+  width: 100%;
+}
+
+.profile-card h2,
+.jobs-card h2,
+.analysis-card h2 {
+  margin-top: 0;
+}
+
+.job-count {
+  margin: 0 0 16px;
+  color: #4b5563;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 12px 0 0;
+  list-style: none;
+}
+
+.tag-list li {
+  padding: 8px 12px;
+  background: #eff6ff;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.card + .card {
+  margin-top: 24px;
+}
+
+.toast {
+  margin-bottom: 18px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.toast.error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.job-title {
+  margin: 8px 0 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.job-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.job-title-card {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.job-company,
+.job-source {
+  margin: 6px 0 0;
+  color: #6b7280;
+}
+
+.job-description {
+  margin: 14px 0 16px;
+  color: #374151;
+}
+
+.job-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.button-secondary {
+  border-color: transparent;
+  background: #111827;
+  color: white;
+}
+
+.button-secondary:hover {
+  background: #0f172a;
+}
+
+.application-card {
+  margin-top: 24px;
+}
+
+.application-list {
+  display: grid;
+  gap: 14px;
+}
+
+.application-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.application-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.application-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.application-controls label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.application-controls select {
+  margin-top: 6px;
+  min-width: 140px;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: white;
+}
+
+.application-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: white;
+}
+
+.status-applied {
+  background: #2563eb;
+}
+
+.status-interview {
+  background: #d97706;
+}
+
+.status-offer {
+  background: #16a34a;
+}
+
+.status-rejected {
+  background: #b91c1c;
+}
+
+.application-meta {
+  display: grid;
+  gap: 12px;
+  align-items: start;
+  text-align: right;
+}
+
+.application-meta select {
+  width: 160px;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: white;
+}
+
+.meta-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.application-item p {
+  margin: 0;
+}
+
+.job-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.job-link:hover {
+  text-decoration: underline;
+}
+
+.match-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+pre {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 18px;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+@media (max-width: 900px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
