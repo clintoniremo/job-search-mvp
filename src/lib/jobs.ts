@@ -1,5 +1,6 @@
 import type { Job } from "@/types";
 import { searchAdzuna } from "@/lib/adzuna";
+import { searchRemotive } from "@/lib/remotive";
 
 const sampleAdditionalJobs: Job[] = [
   {
@@ -42,10 +43,24 @@ export function dedupeJobs(jobs: Job[]) {
 
 export async function searchJobs(query: string, location = "Kenya"): Promise<Job[]> {
   const sources: Job[] = [];
-  const adzunaJobs = await searchAdzuna(query, location);
-  sources.push(...adzunaJobs);
 
-  if (!process.env.ADZUNA_APP_ID || !process.env.ADZUNA_APP_KEY) {
+  try {
+    const remotiveJobs = await searchRemotive(query, location);
+    sources.push(...remotiveJobs);
+  } catch {
+    // Continue with Adzuna fallback or sample jobs.
+  }
+
+  if (process.env.ADZUNA_APP_ID && process.env.ADZUNA_APP_KEY) {
+    try {
+      const adzunaJobs = await searchAdzuna(query, location);
+      sources.push(...adzunaJobs);
+    } catch {
+      // Ignore Adzuna errors for live fallback.
+    }
+  }
+
+  if (sources.length === 0) {
     sources.push(...sampleAdditionalJobs);
   }
 

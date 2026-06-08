@@ -4,7 +4,7 @@ A Next.js prototype for an AI job search assistant.
 
 ## Features
 
-- Aggregates jobs via Adzuna
+- Aggregates jobs via Remotive (live job feed) and Adzuna when configured
 - Demonstrates LinkedIn OAuth profile sync stub
 - AI-powered job match scoring and tailoring
 - Simple UI for job search, profile loading, and job analysis

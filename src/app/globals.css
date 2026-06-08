@@ -1,8 +1,29 @@
 :root {
-  color-scheme: light;
+  /* Light theme colors */
+  --color-bg: #f3f4f6;
+  --color-text: #111827;
+  --color-primary: #2563eb;
+  --color-secondary: #9ca3af;
+  --color-card-bg: #ffffff;
+  --color-card-shadow: rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="dark"] {
+  --color-bg: #1f2937;
+  --color-text: #f9fafb;
+  --color-primary: #60a5fa;
+  --color-secondary: #6b7280;
+  --color-card-bg: #111827;
+  --color-card-shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* Apply theme variables */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f3f4f6;
-  color: #111827;
+  margin: 0;
+  min-height: 100%;
 }
 
 * {

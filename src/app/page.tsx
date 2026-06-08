@@ -20,6 +20,7 @@ export default function HomePage() {
   const [applicationStatusFilter, setApplicationStatusFilter] = useState<ApplicationRecord["status"] | "All">("All");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [info, setInfo] = useState<string | null>(null);
 
   useEffect(() => {
     const stored = window.localStorage.getItem(PROFILE_STORAGE_KEY);
@@ -47,6 +48,13 @@ export default function HomePage() {
       } catch {
         window.localStorage.removeItem("job-search-favorites");
       }
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("linkedin") === "unconfigured") {
+      setInfo("LinkedIn OAuth is not configured on this deployment. Use the demo profile button or set the LinkedIn environment variables.");
+      params.delete("linkedin");
+      window.history.replaceState({}, "", `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ""}`);
     }
   }, []);
 
@@ -276,6 +284,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {info ? <div className="toast">{info}</div> : null}
       {error ? <div className="toast error">{error}</div> : null}
       {loading ? <div className="toast">Loading…</div> : null}
 

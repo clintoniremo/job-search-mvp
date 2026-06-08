@@ -20,6 +20,10 @@ export function getProfileDemo(): Profile {
   return demoProfile;
 }
 
+export function isLinkedInConfigured(): boolean {
+  return Boolean(LINKEDIN_CLIENT_ID && LINKEDIN_CLIENT_SECRET && LINKEDIN_REDIRECT_URI);
+}
+
 export function getLinkedInAuthUrl(state: string) {
   if (!LINKEDIN_CLIENT_ID || !LINKEDIN_REDIRECT_URI) {
     throw new Error("LinkedIn OAuth is not configured.");
